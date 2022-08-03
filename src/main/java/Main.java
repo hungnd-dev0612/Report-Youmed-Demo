@@ -1,21 +1,17 @@
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import io.reactivex.Observable;
-import org.bson.Document;
 
-import java.util.Iterator;
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.DeploymentOptions;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.mongo.MongoClient;
+import mongo_vertx.day2.Verticle1;
 
-public class Main {
-    public static void main(String[] args) {
-        MongoClient driver = new MongoClient("localhost",27017);
-        MongoDatabase database = driver.getDatabase("local");
-        MongoCollection<Document> collection = database.getCollection("myCollection");
-        FindIterable<Document> result = collection.find();
-        Iterator it = result.iterator();
-        while(it.hasNext()){
-            System.out.println(it.next());
-        }
+
+public class Main extends AbstractVerticle {
+
+    public static void main(String[] args) throws InterruptedException {
+        DeploymentOptions options = new DeploymentOptions().setWorker(true);
+        Vertx.vertx().deployVerticle(new Verticle1(), options);
     }
 }

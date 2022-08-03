@@ -20,11 +20,51 @@
         <version>2.2.10</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+
+<!--    mongo client-->
+    <!-- https://mvnrepository.com/artifact/io.vertx/vertx-mongo-client -->
     <dependency>
-        <groupId>org.mongodb</groupId>
-        <artifactId>mongo-java-driver</artifactId>
-        <version>3.12.10</version>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-mongo-client</artifactId>
+        <version>3.7.0</version>
+    </dependency>
+
+<!--    vertx web-->
+    <!-- https://mvnrepository.com/artifact/io.vertx/vertx-web -->
+    <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-web</artifactId>
+        <version>3.7.0</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
+    <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-core</artifactId>
+        <version>3.7.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.24</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.18.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.18.0</version>
     </dependency>
 
 </dependencies>

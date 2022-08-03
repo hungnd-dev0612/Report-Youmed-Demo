@@ -20,7 +20,7 @@ public class Verticle1 extends AbstractVerticle {
 
     @Override
     public void start(Future<Void> startFuture) throws Exception {
-        Vertx vertx = Vertx.vertx();
+
         JsonObject config = new JsonObject()
                 .put("connection_string", "mongodb://localhost:27017")
                 .put("db_name", "local");
@@ -32,7 +32,6 @@ public class Verticle1 extends AbstractVerticle {
         int choose = scan.nextInt();
         String name;
         switch (choose) {
-
             case 1:
                 logger.info("bạn chọn tìm thông tin user");
                 logger.info("nhập tên bạn muốn tìm: ");
@@ -50,6 +49,7 @@ public class Verticle1 extends AbstractVerticle {
                 update(findByName);
                 break;
             case 4:
+                scan.nextLine();
                 logger.info("bạn chọn xóa user");
                 logger.info("nhập tên user cần xóa: ");
                 String deleteByName = scan.nextLine();
@@ -156,4 +156,9 @@ public class Verticle1 extends AbstractVerticle {
     public void findAll() {
 
     }
+
+    public void loopFeature(){
+
+    }
+
 }

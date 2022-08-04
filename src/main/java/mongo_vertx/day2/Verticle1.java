@@ -25,41 +25,7 @@ public class Verticle1 extends AbstractVerticle {
                 .put("connection_string", "mongodb://localhost:27017")
                 .put("db_name", "local");
         client = MongoClient.createShared(vertx, config);
-        JsonObject query = new JsonObject().put("name", "hand");
-        Scanner scan = new Scanner(System.in);
-        Thread.sleep(100);
-        logger.info("Nhập số 1 hoặc 2 hoặc 3 để sài chức năng: ");
-        int choose = scan.nextInt();
-        String name;
-        switch (choose) {
-            case 1:
-                logger.info("bạn chọn tìm thông tin user");
-                logger.info("nhập tên bạn muốn tìm: ");
-                name = scan.nextLine();
-                findOne(name);
-                break;
-            case 2:
-                logger.info("bạn chọn thêm mới user");
-                insert();
-                break;
-            case 3:
-                logger.info("bạn chọn cập nhật thông tin user");
-                logger.info("nhập tên user cần tìm: ");
-                String findByName = scan.nextLine();
-                update(findByName);
-                break;
-            case 4:
-                scan.nextLine();
-                logger.info("bạn chọn xóa user");
-                logger.info("nhập tên user cần xóa: ");
-                String deleteByName = scan.nextLine();
-                delete(deleteByName);
-                break;
-            default:
-                System.out.println("Chọn số đi");
-                return;
-        }
-
+        loopFeature();
 
     }
 
@@ -157,8 +123,52 @@ public class Verticle1 extends AbstractVerticle {
 
     }
 
-    public void loopFeature(){
+    public void loopFeature() {
+        Scanner scan = new Scanner(System.in);
 
+        boolean check = true;
+        do {
+            System.out.println(("1. Tìm thông tin user"));
+            System.out.println(("2. Nhập thông tin user"));
+            System.out.println(("3. Cập nhật thông tin user"));
+            System.out.println(("4. Xóa thông tin user"));
+            System.out.println(("5. Thoát chương trình"));
+            int choose = scan.nextInt();
+            String name;
+            switch (choose) {
+                case 1:
+                    scan.nextLine();
+                    logger.info("bạn chọn tìm thông tin user");
+                    logger.info("nhập tên bạn muốn tìm: ");
+                    name = scan.nextLine();
+                    findOne(name);
+                    break;
+                case 2:
+                    logger.info("bạn chọn thêm mới user");
+                    insert();
+                    break;
+                case 3:
+                    logger.info("bạn chọn cập nhật thông tin user");
+                    logger.info("nhập tên user cần tìm: ");
+                    String findByName = scan.nextLine();
+                    update(findByName);
+                    break;
+                case 4:
+                    scan.nextLine();
+                    logger.info("bạn chọn xóa user");
+                    logger.info("nhập tên user cần xóa: ");
+                    String deleteByName = scan.nextLine();
+                    delete(deleteByName);
+                    break;
+                case 5:
+                    logger.info("thoát chương trình");
+                    check = false;
+                    break;
+                default:
+                    System.out.println("Chọn số đi");
+                    return;
+            }
+        } while (check);
     }
 
 }
